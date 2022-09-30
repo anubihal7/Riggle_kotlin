@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="callback"
+            type="com.rigle.servicehub.ui.base.adapter.RVAdapter.Callback" />
+
+        <variable
+            name="bean"
+            type="com.rigle.servicehub.ui.main.MainActivity.Option" />
+
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/v_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:onClick="@{v->callback.onItemClick(v,bean)}"
+        android:orientation="vertical"
+        android:visibility="@{bean.enable?View.VISIBLE:View.INVISIBLE}">
+
+        <FrameLayout
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_cart"
+                android:visibility="@{bean.checked?View.GONE:View.VISIBLE}"
+                app:simpleResourse="@{bean.icon}"
+                app:tint="@color/text_color_grey" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_cart"
+                android:visibility="@{bean.checked?View.VISIBLE:View.GONE}"
+                app:simpleResourse="@{bean.icon}"
+                app:tint="@color/orange" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_line22"
+            style="@style/TextView.Semibold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Home"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:text='@{bean.title}'
+            android:textAllCaps="true"
+            android:textColor="@{bean.checked?@color/orange:@color/text_color_grey}"
+            android:textSize="@dimen/_10ssp" />
+
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data></data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/TextView.Regular"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/ic_tick_green" />
+
+        <TextView
+            android:id="@+id/tv_one"
+            style="@style/TextView.Regular.Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:hint="Name"
+            android:text="List your produilers"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</layout>

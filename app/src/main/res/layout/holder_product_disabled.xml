@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <import type="android.view.View" />
+
+        <variable
+            name="bean"
+            type="com.rigle.servicehub.data.model.Product" />
+
+        <variable
+            name="callback"
+            type="com.rigle.servicehub.ui.base.adapter.MultiAdapter.Callback" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/v_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:onClick="@{v->callback.onItemClick(v,bean)}">
+
+
+        <ImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_name"
+             />
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextView.Regular.Black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:hint="Name"
+            android:text="@{bean.getRealProductName()}"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_profile"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <TextView
+                android:id="@+id/tv_qty"
+                app:layout_constraintStart_toEndOf="@id/tv_qty_label"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:hint="00"
+                app:layout_constraintTop_toTopOf="@id/tv_qty_label"
+                app:layout_constraintBottom_toBottomOf="@id/tv_qty_label"
+                android:text="@{String.valueOf(bean.quantity)}"
+                android:textColor="@color/black" />
+
+
+        <TextView
+            android:id="@+id/tv_rate"
+            style="@style/TextView.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:hint="Rate"
+            app:currency="@{bean.rate}"
+            app:layout_constraintEnd_toEndOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_qty_label"
+            style="@style/TextView.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Qty"
+            app:layout_constraintBottom_toBottomOf="@id/tv_rate"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toTopOf="@id/tv_rate" />
+
+        <TextView
+            android:id="@+id/tv_amt"
+            style="@style/TextView.Regular.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="Amount"
+            app:currency="@{bean.amount}"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/tv_rate"
+            app:layout_constraintTop_toBottomOf="@id/tv_rate" />
+        <View
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="@id/iv_profile"
+            app:layout_constraintEnd_toEndOf="@id/tv_rate"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/tv_amt"
+            android:background="@color/line"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

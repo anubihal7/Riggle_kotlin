@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="gstpath"
+            type="String" />
+
+        <variable
+            name="fsscipath"
+            type="String" />
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.owner.OwnerViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvFirmName"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="Your Name*"
+                android:textColor="@color/text_color_dark" />
+
+            <EditText
+                android:id="@+id/etFirmName"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionNext"
+                android:text="@={vm.field_fullname}"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/tv_lable"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="Would you like to add any co-owners along with you?"
+                android:textColor="@color/orange" />
+
+            <TextView
+                style="@style/TextView.Regular.Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="Co-owner Name"
+                android:textColor="@color/text_color_dark" />
+
+            <EditText
+                android:id="@+id/et_coowner"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionNext"
+                android:text="@={vm.field_co_name}"
+                android:inputType="text" />
+
+            <TextView
+                style="@style/TextView.Regular.Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="Phone Number"
+                android:textColor="@color/text_color_dark" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionNext"
+                android:text="@={vm.field_mobile}"
+                android:inputType="phone"
+                android:hint="+91" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:gravity="center_vertical"
+                android:id="@+id/ll_add_co_owner"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:layout_marginTop="@dimen/_20sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:src="@drawable/ic_plus"
+                    app:tint="@color/orange" />
+
+                <TextView
+                    style="@style/TextView.Regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:text="Add another owner"
+                    android:textAllCaps="true"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_10ssp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

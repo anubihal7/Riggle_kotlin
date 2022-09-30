@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/frg_dashboard">
+    <fragment
+        android:id="@+id/frg_dashboard"
+        android:name="com.rigle.servicehub.ui.dashboard.DashBoardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/frg_account"
+        android:name="com.rigle.servicehub.ui.business.BusinessFragment"
+        android:label="Account"
+        tools:layout="@layout/fragment_business" />
+    <fragment
+        android:id="@+id/frg_order"
+        android:name="com.rigle.servicehub.ui.orders.OrderFragment"
+        android:label="Order"
+        tools:layout="@layout/fragment_order" />
+
+    <fragment
+        android:id="@+id/frg_more"
+        android:name="com.rigle.servicehub.ui.more.MoreFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_more" />
+
+    <fragment
+        android:id="@+id/frg_myaccount"
+        android:name="com.rigle.servicehub.ui.account.MyAccountFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_account" />
+
+    <fragment
+        android:id="@+id/frg_edit_account"
+        android:name="com.rigle.servicehub.ui.account.edit.EditAccountFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_edit_account" />
+
+    <fragment
+        android:id="@+id/frg_referral"
+        android:name="com.rigle.servicehub.ui.referral.ReferralFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_referral" />
+
+    <fragment
+        android:id="@+id/frg_statement"
+        android:name="com.rigle.servicehub.ui.statement.StatementFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_statement" />
+
+
+    <fragment
+        android:id="@+id/frg_manage_runner"
+        android:name="com.rigle.servicehub.ui.runner.ManageRunnerFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_manage_runner" />
+    <fragment
+        android:id="@+id/frg_detail_runner"
+        android:name="com.rigle.servicehub.ui.runner.detail.RunnerDetailFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_runner_detail" />
+    <fragment
+        android:id="@+id/frg_update_runner"
+        android:name="com.rigle.servicehub.ui.runner.update.UpdateRunnerFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_runner_update" />
+    <fragment
+        android:id="@+id/frg_manage_sales"
+        android:name="com.rigle.servicehub.ui.sales.ManageSalesFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_manage_sales" />
+    <fragment
+        android:id="@+id/frg_detail_sales"
+        android:name="com.rigle.servicehub.ui.sales.detail.SalesDetailFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_sales_detail" />
+    <fragment
+        android:id="@+id/frg_sales"
+        android:name="com.rigle.servicehub.ui.sales.add.SalesFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_sales" />
+    <fragment
+        android:id="@+id/frg_inventory"
+        android:name="com.rigle.servicehub.ui.inventory.InventoryFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_inventory" />
+
+    <fragment
+        android:id="@+id/frg_detail_inventory"
+        android:name="com.rigle.servicehub.ui.inventory.detail.DetailInventoryFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_detail_inventory" />
+
+    <fragment
+        android:id="@+id/frag_subscription"
+        android:name="com.rigle.servicehub.ui.subscription.SubscriptionFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_subscription" />
+
+</navigation>

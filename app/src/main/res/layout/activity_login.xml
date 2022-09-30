@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.login.LoginActivityVM" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:id="@+id/main"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/bg_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/bgView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:background="@drawable/top_cornered_shape"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <include
+                android:id="@+id/v_bottom"
+                layout="@layout/view_skip_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="@string/sign_in"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:vm="@{vm}" />
+
+            <ImageView
+                android:id="@+id/iv_logo2"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:src="@drawable/ic_riggle2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/bgView" />
+
+            <TextView
+                android:id="@+id/tvTitleOne"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="CHALO RIGGLE KARO"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_logo2" />
+
+            <TextView
+                android:id="@+id/tvEmail"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:text="Phone Number"
+                android:textColor="@color/text_color_dark"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleOne" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                style="@style/EditText"
+                android:layout_width="0dp"
+                android:layout_marginTop="10dp"
+                android:hint="Enter Phone Number"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:text="@={vm.field_phone}"
+                app:layout_constraintEnd_toEndOf="@id/tvEmail"
+                app:layout_constraintStart_toStartOf="@id/tvEmail"
+                app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+
+            <CheckBox
+                android:id="@+id/cbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/orange"
+                app:layout_constraintBottom_toBottomOf="@id/terms"
+                app:layout_constraintStart_toStartOf="@id/etEmail"
+                app:layout_constraintTop_toTopOf="@id/terms" />
+
+            <TextView
+                android:id="@+id/terms"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:text="I agree to the Terms and Conditions and PrivacyPolicy"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@id/etEmail"
+                app:layout_constraintStart_toEndOf="@id/cbox"
+                app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+            <TextView
+                android:id="@+id/countdown"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/etEmail"
+                app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+            <TextView
+                android:id="@+id/tv_resend"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="Resend Otp"
+                android:textAllCaps="true"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/etEmail"
+                app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+            <TextView
+                android:id="@+id/tvotp"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_25ssp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:text="Otp"
+                android:textColor="@color/text_color_dark"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/terms" />
+
+            <EditText
+                android:id="@+id/etotp"
+                style="@style/EditText"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_marginTop="10dp"
+                android:hint="Enter Otp"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="6"
+                android:text="@={vm.field_otp}"
+                app:layout_constraintStart_toStartOf="@id/tvEmail"
+                app:layout_constraintTop_toBottomOf="@+id/tvotp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/blur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </FrameLayout>
+</layout>

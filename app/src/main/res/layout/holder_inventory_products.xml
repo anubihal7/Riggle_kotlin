@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <import type="android.view.View" />
+
+        <variable
+            name="bean"
+            type="com.rigle.servicehub.data.model.Stock" />
+
+        <variable
+            name="holder"
+            type="com.rigle.servicehub.ui.base.adapter.RVAdapter.Holder" />
+
+        <variable
+            name="callback"
+            type="com.rigle.servicehub.ui.base.adapter.RVAdapter.Callback" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/v_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@color/white"
+        android:onClick="@{v->callback.onItemClick(v,bean)}">
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextView.Semibold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:ellipsize="end"
+            android:hint="Name"
+            android:maxLines="2"
+            android:text="@{bean.product.name}"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/cb_one"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.rigle.servicehub.utils.view.MyCheckBox
+            android:id="@+id/cb_one"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_inhand"
+            style="@style/TextView.Regular.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:ellipsize="end"
+            android:text='@{"Stocks in hand :"+bean.finalQuantity}'
+            android:textColor="@color/green"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+        <ImageView
+            android:id="@+id/iv_1"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:src="@drawable/ic_bag"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_inhand" />
+
+        <TextView
+            android:id="@+id/tv_invoice"
+            style="@style/TextView.Regular.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:ellipsize="end"
+            android:text="Rate :"
+            android:textColor="@color/text_color_dark"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_1"
+            app:layout_constraintStart_toEndOf="@id/iv_1"
+            app:layout_constraintTop_toTopOf="@id/iv_1" />
+
+        <TextView
+            android:id="@+id/tv_invoice_value"
+            style="@style/TextView.Semibold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:ellipsize="end"
+            android:hint="NA"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:currency="@{bean.product.mrp}"
+            app:layout_constraintBottom_toBottomOf="@id/tv_invoice"
+            app:layout_constraintEnd_toEndOf="@id/tv_name"
+            app:layout_constraintStart_toEndOf="@id/tv_invoice"
+            app:layout_constraintTop_toTopOf="@id/tv_invoice" />
+
+        <ImageView
+            android:id="@+id/iv_2"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:src="@drawable/ic_wallet"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/iv_1" />
+
+        <TextView
+            android:id="@+id/tv_amt"
+            style="@style/TextView.Regular.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:ellipsize="end"
+            android:text="Total :"
+            android:textColor="@color/text_color_dark"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_2"
+            app:layout_constraintStart_toEndOf="@id/iv_2"
+            app:layout_constraintTop_toTopOf="@id/iv_2" />
+
+        <TextView
+            android:id="@+id/tv_amt_value"
+            style="@style/TextView.Semibold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:ellipsize="end"
+            android:hint="NA"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:currency="@{bean.product.baseQuantity}"
+            app:layout_constraintBottom_toBottomOf="@id/tv_amt"
+            app:layout_constraintEnd_toEndOf="@id/tv_name"
+            app:layout_constraintStart_toEndOf="@id/tv_amt"
+            app:layout_constraintTop_toTopOf="@id/tv_amt" />
+
+
+        <TextView
+            android:id="@+id/tv_qty_label"
+            style="@style/TextView.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:text="Qty"
+            app:layout_constraintBottom_toTopOf="@id/v_1"
+            app:layout_constraintStart_toStartOf="@id/v_1" />
+
+        <TextView xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/tv_qty"
+            style="@style/TextView.Regular.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="@{String.valueOf(bean.quantity)}"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/tv_qty_label"
+            app:layout_constraintStart_toEndOf="@id/tv_qty_label"
+            app:layout_constraintTop_toTopOf="@id/tv_qty_label"
+            tools:text="0" />
+
+        <LinearLayout
+            android:id="@+id/v_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_view_round_1"
+            android:orientation="horizontal"
+            android:padding="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_amt_value"
+            app:layout_constraintEnd_toEndOf="@id/cb_one">
+
+            <ImageView
+                android:id="@+id/iv_minus"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:background="@drawable/back_view_round"
+                android:backgroundTint="@color/orange"
+                android:onClick="@{v->callback.onItemClick(v,bean,holder.adapterPosition)}"
+                android:padding="@dimen/_7sdp"
+                android:src="@drawable/ic_negitive"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_newqty"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:hint="0"
+                android:minWidth="@dimen/_30sdp"
+                android:text="@{String.valueOf(bean.newQty)}"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/iv_plus"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:background="@drawable/back_view_round"
+                android:backgroundTint="@color/orange"
+                android:onClick="@{v->callback.onItemClick(v,bean,holder.adapterPosition)}"
+                android:padding="@dimen/_7sdp"
+                android:src="@drawable/ic_add"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:id="@+id/v_2"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/line"
+            app:layout_constraintEnd_toEndOf="@id/cb_one"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_amt_value" />
+        <Space
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/v_2"
+            android:id="@+id/space"
+            android:layout_height="@dimen/_70sdp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

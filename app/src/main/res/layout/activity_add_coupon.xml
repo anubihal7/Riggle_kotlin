@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="brand"
+            type="com.rigle.servicehub.data.model.Brand" />
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.coupon.AddCouponActivityVM" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_main">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_back"
+            app:vm="@{vm}" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:background="@color/bg_dim"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextView.Semibold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="Fill in your coupon details:"
+                    android:textColor="@color/text_color_dark"
+                    android:textSize="@dimen/_12sdp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="#DDE5E7" />
+
+                <TextView
+                    android:id="@+id/tvproof"
+                    style="@style/TextView.Regular.Black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="Apply coupon on"
+                    android:textColor="@color/text_color_dark" />
+
+                <EditText
+                    android:id="@+id/et_brand"
+                    style="@style/EditText"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:drawableEnd="@drawable/ic_action_down"
+                    android:drawableTint="@color/dim_color"
+                    android:focusable="false"
+                    android:text="@{brand.name}"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:hint="Select a brand" />
+
+                <TextView
+                    style="@style/TextView.Regular.Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="Offer Type*"
+                    android:textColor="@color/text_color_dark" />
+
+                <RadioGroup
+                    android:id="@+id/rg_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <RadioButton
+                        android:id="@+id/rb_flat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_30sdp"
+                        android:buttonTint="@color/orange"
+                        android:checked="true"
+                        android:fontFamily="@font/rubik_regular"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:text="Fixed (eg: ₹100 off)"
+                        android:textColor="@color/bg_grey" />
+
+                    <RadioButton
+                        android:id="@+id/rb_percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_30sdp"
+                        android:buttonTint="@color/orange"
+                        android:fontFamily="@font/rubik_regular"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:text="Percentage (eg: 5% off)"
+                        android:textColor="@color/bg_grey" />
+                </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextView.Regular.Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:text="Offer Value*"
+                            android:textColor="@color/text_color_dark" />
+
+                        <EditText
+                            android:id="@+id/et_offer_value"
+                            style="@style/EditText"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:imeOptions="actionNext"
+                            android:inputType="numberDecimal"
+                            android:maxLength="10" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextView.Regular.Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:text="Minimum order value*"
+                            android:textColor="@color/text_color_dark" />
+
+                        <EditText
+                            android:id="@+id/et_minorder"
+                            style="@style/EditText"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:imeOptions="actionNext"
+                            android:inputType="numberDecimal"
+                            android:maxLength="10" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TextView.Regular.Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="Number of coupons*"
+                    android:textColor="@color/text_color_dark" />
+
+                <EditText
+                    android:id="@+id/et_number"
+                    style="@style/EditText"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="15" />
+
+                <TextView
+                    style="@style/TextView.Regular.Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="Condition*"
+                    android:textColor="@color/text_color_dark" />
+
+                <RadioGroup
+                    android:id="@+id/rg_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <RadioButton
+                        android:id="@+id/rb_condition_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_30sdp"
+                        android:buttonTint="@color/orange"
+                        android:checked="true"
+                        android:fontFamily="@font/rubik_regular"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:text="Retailer can use this code only once"
+                        android:textColor="@color/bg_grey" />
+
+                    <RadioButton
+                        android:id="@+id/rb_condition_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_30sdp"
+                        android:buttonTint="@color/orange"
+                        android:fontFamily="@font/rubik_regular"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:text="Retailer can use this code once a day"
+                        android:textColor="@color/bg_grey" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/btn_activate"
+                    style="@style/ButtonHollow"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:backgroundTint="@color/orange"
+                    android:elevation="@dimen/_5sdp"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:text="next"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/blur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </RelativeLayout>
+</layout>

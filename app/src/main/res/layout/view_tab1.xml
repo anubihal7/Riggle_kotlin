@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="index"
+            type="String" />
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="add"
+            type="boolean" />
+
+        <variable
+            name="current"
+            type="boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:id="@+id/v1"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/bg_circle"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:backgroundTint="#F4F4F4"
+            android:elevation="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/v_circle_orange"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_circle"
+                android:backgroundTint="@color/orange"
+                android:visibility="@{current?View.VISIBLE:View.GONE}" />
+
+            <TextView
+                style="@style/TextView.Semibold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:hint="Name"
+                android:padding="0dp"
+                android:text="@{index}"
+                android:textColor="@{add?@color/orange:@color/black}"
+                android:textSize="@dimen/_15ssp"
+                android:textStyle="bold"
+                tools:text="1" />
+            <TextView
+                style="@style/TextView.Semibold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:hint="Name"
+                android:padding="0dp"
+                android:visibility="@{current?View.VISIBLE:View.GONE}"
+                android:text="@{index}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                android:textStyle="bold"
+                tools:text="1" />
+        </FrameLayout>
+
+
+        <TextView
+            style="@style/TextView.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="Name"
+            android:text="@{title}"
+            android:textColor="#2A3436"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/v1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

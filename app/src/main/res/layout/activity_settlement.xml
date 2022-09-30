@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.settle.SettlementActivityVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/layout_bg">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/v_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_back"
+                app:vm="@{vm}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_one"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/v_top" />
+
+        <include
+            android:id="@+id/empty"
+            layout="@layout/view_data_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/v_top"
+            app:vm="@{vm}" />
+
+        <include
+            android:id="@+id/loader"
+            layout="@layout/view_loader"
+            android:layout_below="@id/v_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+</layout>

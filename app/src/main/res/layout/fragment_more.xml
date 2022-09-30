@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.more.MoreViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_main">
+
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_main"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/v_plan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E5E5E5"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/lottie"
+                android:scaleX="2"
+                android:scaleY="2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.rigle.servicehub.utils.view.CircularProgressBar
+                android:id="@+id/cb_one"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cpb_background_progressbar_color="#D3D3D3"
+                app:cpb_background_progressbar_width="@dimen/_8sdp"
+                app:cpb_progress="0"
+                app:cpb_progress_direction="to_left"
+                app:cpb_progress_max="100"
+                app:cpb_progressbar_color="@color/orange"
+                app:cpb_progressbar_width="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_remaining"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 Days Left"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@id/cb_one"
+                app:layout_constraintEnd_toEndOf="@id/cb_one"
+                app:layout_constraintStart_toStartOf="@id/cb_one"
+                app:layout_constraintTop_toTopOf="@id/cb_one" />
+
+            <LinearLayout
+                android:id="@+id/ll_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/ll_renew"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cb_one">
+
+                <TextView
+                    style="@style/TextView.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You are on "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:id="@+id/tv_plan"
+                    style="@style/TextView.Semibold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Expert Plan for 180 days"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_renew"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_1">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/ic_repeat" />
+
+                <TextView
+                    style="@style/TextView.Semibold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:text="renew plan"
+                    android:textAllCaps="true"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_12ssp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_one"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/bg_dim"
+            android:orientation="vertical"
+            android:padding="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/v_plan"
+            tools:listitem="@layout/holder_menu" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_height">@dimen/_65sdp</dimen>
+    <dimen name="icon_height">@dimen/_35sdp</dimen>
+    <dimen name="menu_margin_start">@dimen/_10sdp</dimen>
+    <dimen name="title_margin_start">@dimen/_20sdp</dimen>
+</resources>

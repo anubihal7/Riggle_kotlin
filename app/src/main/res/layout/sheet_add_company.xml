@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="callback"
+            type="com.rigle.servicehub.ui.base.sheet.BaseCloseSheet.ClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextView.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="Complete your profile:"
+            android:textColor="@color/text_color_dark"
+            android:textSize="@dimen/_12ssp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="#DDE5E7" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextView.Regular.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Your Name"
+            android:textColor="@color/text_color_dark"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+        <EditText
+            android:id="@+id/etname"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="Enter your name"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLength="20" />
+
+        <TextView
+            android:id="@+id/tvPincode"
+            style="@style/TextView.Regular.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Pin Code"
+            android:textColor="@color/text_color_dark"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+        <EditText
+            android:id="@+id/etPincode"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="Enter Pin Code"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLength="7" />
+
+        <TextView
+            android:id="@+id/btn_submit"
+            style="@style/ButtonHollow"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/_15sdp"
+            android:backgroundTint="@color/orange"
+            android:elevation="@dimen/_5sdp"
+            android:onClick="@{v->callback.onClick(v)}"
+            android:text="Submit"
+            android:textAllCaps="true"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.welcome.WelcomeActivityVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_riggle2" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_alignParentBottom="true">
+
+            <View
+                android:id="@+id/v_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/orange" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:layout_width="match_parent"
+                android:alpha="0"
+                android:id="@+id/pb_one"
+                android:layout_height="@dimen/_10sdp" />
+        </FrameLayout>
+    </RelativeLayout>
+</layout>

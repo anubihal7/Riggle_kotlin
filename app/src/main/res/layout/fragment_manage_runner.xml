@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.runner.MangeRunnerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_main">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:vm="@{vm}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/bg_dim"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <TextView
+                android:id="@+id/tv_count"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:text="--"
+                android:textColor="#455A64"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:id="@+id/ll_date"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:background="?selectableItemBackground"
+                app:layout_constraintTop_toTopOf="@id/tv_count"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_date"
+                    style="@style/TextView.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_10sdp"
+                    android:text="--"
+                    android:textColor="@color/grey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_gravity="center"
+                    android:rotation="90"
+                    android:src="@drawable/ic_action_next"
+                    android:layout_height="@dimen/_15sdp"
+                    app:tint="@color/grey" />
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                app:layout_constraintBottom_toTopOf="@id/btn_add"
+                app:layout_constraintTop_toBottomOf="@id/tv_count">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <include
+                    android:id="@+id/empty"
+                    layout="@layout/view_data_home"
+                    app:vm="@{vm}" />
+
+                <include
+                    android:id="@+id/loader"
+                    layout="@layout/view_loader" />
+            </FrameLayout>
+
+
+            <TextView
+                android:id="@+id/btn_add"
+                style="@style/ButtonHollow"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_15sdp"
+                android:elevation="@dimen/_5sdp"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="@string/add_runner"
+                android:textAllCaps="true"
+                android:textColor="@color/orange"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

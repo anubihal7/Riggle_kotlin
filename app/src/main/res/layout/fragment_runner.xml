@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="gstpath"
+            type="String" />
+
+        <variable
+            name="fsscipath"
+            type="String" />
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.runner.RunnerViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextView.Semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="Please add you delivery executives"
+                android:textColor="@color/text_color_grey"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                style="@style/TextView.Regular.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="We will send them a link to download the app and connect their account."
+                android:textColor="@color/text_color_grey"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                style="@style/TextView.Regular.Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="Full Name"
+                android:textColor="@color/text_color_dark" />
+
+            <EditText
+                android:id="@+id/etname"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:text="@={vm.fieldName}" />
+
+            <TextView
+                style="@style/TextView.Regular.Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="Phone Number"
+                android:textColor="@color/text_color_dark" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:text="@={vm.fieldPhone}" />
+
+            <LinearLayout
+                android:id="@+id/ll_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="?selectableItemBackground"
+                android:gravity="center_vertical"
+                android:onClick="@{v->vm.onClick(v)}">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/ic_plus"
+                    app:tint="@color/orange" />
+
+                <TextView
+                    style="@style/TextView.Semibold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Add Runner"
+                    android:textAllCaps="true"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_12ssp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

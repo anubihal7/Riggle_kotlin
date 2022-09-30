@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="message"
+            type="String" />
+
+        <variable
+            name="text_cancel"
+            type="String" />
+
+        <variable
+            name="text_ok"
+            type="String" />
+
+
+        <variable
+            name="callback"
+            type="com.rigle.servicehub.ui.base.sheet.BaseSheet.ClickListener" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/TextView.Semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="@{title}"
+                android:textColor="@color/text_color_dark"
+                android:textSize="@dimen/_12ssp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="#DDE5E7" />
+
+            <TextView
+                android:id="@+id/tv_message"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="@{message}"
+                android:textColor="@color/text_color_dark"
+                android:textSize="@dimen/_10ssp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/tv_cancel"
+                    style="@style/ButtonHollow"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:layout_weight="1"
+                    android:elevation="@dimen/_5sdp"
+                    android:onClick="@{v->callback.onClick(v)}"
+                    android:text="@{text_cancel}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/orange"
+                    android:visibility="@{text_cancel!=null?View.VISIBLE:View.GONE}" />
+
+                <TextView
+                    android:id="@+id/tv_ok"
+                    style="@style/ButtonHollow"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/orange"
+                    android:elevation="@dimen/_5sdp"
+                    android:onClick="@{v->callback.onClick(v)}"
+                    android:text="@{text_ok}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:visibility="@{text_ok!=null?View.VISIBLE:View.GONE}" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

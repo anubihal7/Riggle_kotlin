@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name">Service Hub</string>
+
+    <string name="session_expired">session_expired</string>
+    <string name="alert">Alert</string>
+    <string name="post_detail">Post Detail</string>
+    <string name="please_try_again">Please try again</string>
+    <string name="plz_wait">Plz wait</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="my_account">My Account</string>
+
+    <string name="welcome_to_riggle">Welcome To \nRiggle Retailer</string>
+
+    <string name="user_id">User Id</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_user_id">Enter User Id</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+
+    <!-- my account -->
+    <string name="business_name">Business Name</string>
+    <string name="enter_firm_name">Enter Business Name</string>
+    <string name="gst_no">GST Number</string>
+    <string name="enter_gst_no">Enter GST No</string>
+
+    <string name="fssai_no">FSSAI N0</string>
+    <string name="enter_fsaai_no">Enter FSSAI No</string>
+    <string name="enter_address">Enter Address</string>
+
+    <string name="owner_name_1">Owner Name 1</string>
+    <string name="owner_no_1">Owner Number 1</string>
+    <string name="owner_name_2">Owner Name 2</string>
+    <string name="owner_no_2">Owner Number 2</string>
+    <string name="upload_upi_scanner">Upload UPI Scanner</string>
+    <string name="upload_photo">Upload\nPhoto</string>
+
+    <string name="runner_name">Runner Name</string>
+    <string name="enter_runner_name">Enter runner name</string>
+    <string name="runner_no">Runner No</string>
+    <string name="enter_runner_no">Enter runner no</string>
+    <string name="rs_symbol">\u20B9 </string>
+    <string name="address">Address</string>
+    <string name="ret_order">Orders</string>
+    <!--    <string name="rs_symbol">\u20A8</string>-->
+
+    <string name="onboarding_title1">Manage Anytime</string>
+    <string name="onboarding_title2">Order Management</string>
+    <string name="onboarding_title3">Rider Management</string>
+
+    <string name="onboarding_text1">Get more orders through Riggle</string>
+    <string name="onboarding_text2">Manage your runners</string>
+    <string name="onboarding_text3">Discover new brands &amp; products</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+    <string name="skip">Skip</string>
+    <string name="terms_message">I agree to the <![CDATA[<font color=#FC8C4D><a  href="https://assets.riggleapp.in/static/tnc.html"><b>Terms and Conditions</b></a></font>]]> and <![CDATA[<font color=#FC8C4D><a  href="https://assets.riggleapp.in/static/privacy-policy.html"><b>PrivacyPolicy</b></a></font>]]></string>
+    <string name="referral">Referral</string>
+    <string name="statements">Statements</string>
+    <string name="retail_order">Retail Orders</string>
+    <string name="manage_runner">Manage Runners</string>
+    <string name="add_runner">Add a runner</string>
+    <string name="edit_runner_info">Edit runner info</string>
+    <string name="runner_detail">Runner Details</string>
+    <string name="completed">Completed</string>
+    <string name="pending">Pending</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="confirm">Confirm</string>
+    <string name="outs_amount">Outs. Amount</string>
+    <string name="error">Error</string>
+    <string name="coupon_codes">Coupon codes</string>
+    <string name="manage_sales_person">Manage sales person</string>
+    <string name="sales_person">Sales Persons</string>
+    <string name="add_sales_person">Add a sales person</string>
+    <string name="inventory">Inventory</string>
+    <string name="all_runners">All Runners</string>
+    <string name="orders">Orders</string>
+    <string name="delivered">Delivered</string>
+    <string name="settlements">Settlements</string>
+    <string name="subscription">Subscription</string>
+
+</resources>

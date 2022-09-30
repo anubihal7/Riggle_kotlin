@@ -1,0 +1,3 @@
+password   : android
+keystore password : android
+alis: key1

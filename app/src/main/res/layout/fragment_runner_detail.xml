@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.runner.detail.RunnerDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_main">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:vm="@{vm}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/v_top"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/bg_dim"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <TextView
+                android:id="@+id/tv_name"
+                style="@style/TextView.Semibold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="@dimen/_5sdp"
+                android:padding="@dimen/_15sdp"
+                android:textColor="#2A3436"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Runner Name" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:id="@+id/ll_date"
+                android:elevation="@dimen/_10sdp"
+                android:onClick="@{v->vm.onClick(v)}"
+                app:layout_constraintBottom_toBottomOf="@id/tv_name"
+                android:background="?selectableItemBackground"
+                app:layout_constraintTop_toTopOf="@id/tv_name"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_date"
+                    style="@style/TextView.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_10sdp"
+                    android:text="--"
+                    android:textColor="@color/grey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_gravity="center"
+                    android:rotation="90"
+                    android:src="@drawable/ic_action_next"
+                    android:layout_height="@dimen/_15sdp"
+                    app:tint="@color/grey" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/v_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/tv_name" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/loader"
+            layout="@layout/view_loader"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <ImageView
+            android:id="@+id/blur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

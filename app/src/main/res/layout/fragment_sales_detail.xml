@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.rigle.servicehub.data.model.SalesPerson" />
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.sales.detail.SalesDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_main">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:vm="@{vm}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/bg_dim"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <TextView
+                android:id="@+id/tv_name"
+                style="@style/TextView.Semibold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="@dimen/_5sdp"
+                android:padding="@dimen/_15sdp"
+                android:text="@{bean.fullName}"
+                android:textColor="#2A3436"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Sales Person Name" />
+
+
+            <ImageView
+                android:id="@+id/iv_1"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:src="@drawable/ic_mobile"
+                app:layout_constraintStart_toStartOf="@id/tv_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+            <TextView
+                android:id="@+id/tv_invoice"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:ellipsize="end"
+                android:text="Today’s Trips:"
+                android:textColor="@color/text_color_dark"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_1"
+                app:layout_constraintStart_toEndOf="@id/iv_1"
+                app:layout_constraintTop_toTopOf="@id/iv_1" />
+
+            <TextView
+                android:id="@+id/tv_invoice_value"
+                style="@style/TextView.Semibold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:ellipsize="end"
+                android:hint="NA"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_invoice"
+                app:layout_constraintEnd_toEndOf="@id/tv_name"
+                app:layout_constraintStart_toEndOf="@id/tv_invoice"
+                app:layout_constraintTop_toTopOf="@id/tv_invoice" />
+
+            <ImageView
+                android:id="@+id/iv_2"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:src="@drawable/ic_time"
+                app:layout_constraintStart_toStartOf="@id/iv_1"
+                app:layout_constraintTop_toBottomOf="@+id/iv_1" />
+
+            <TextView
+                android:id="@+id/tv_amt"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:ellipsize="end"
+                android:text="Today’s settlement:"
+                android:textColor="@color/text_color_dark"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_2"
+                app:layout_constraintStart_toEndOf="@id/iv_2"
+                app:layout_constraintTop_toTopOf="@id/iv_2" />
+
+            <TextView
+                android:id="@+id/tv_amt_value"
+                style="@style/TextView.Semibold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:ellipsize="end"
+                android:hint="NA"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_amt"
+                app:layout_constraintEnd_toEndOf="@id/tv_name"
+                app:layout_constraintStart_toEndOf="@id/tv_amt"
+                app:layout_constraintTop_toTopOf="@id/tv_amt" />
+
+            <ImageView
+                android:id="@+id/iv_3"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintStart_toStartOf="@id/iv_1"
+                app:layout_constraintTop_toBottomOf="@+id/v_1" />
+
+            <TextView
+                android:id="@+id/tv_detail"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:ellipsize="end"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="Edit Info"
+                android:textAllCaps="true"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_3"
+                app:layout_constraintStart_toEndOf="@id/iv_3"
+                app:layout_constraintTop_toTopOf="@id/iv_3" />
+
+            <ImageView
+                android:id="@+id/iv_4"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:src="@drawable/ic_file"
+                app:layout_constraintEnd_toStartOf="@id/tv_disable"
+                app:layout_constraintTop_toBottomOf="@+id/v_1" />
+
+            <TextView
+                android:id="@+id/tv_disable"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:ellipsize="end"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text='@{bean.isActive()?"DISABLE User":"Enable User"}'
+                android:textAllCaps="true"
+                android:textColor="@color/colorYellow"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_3" />
+
+            <View
+                android:id="@+id/v_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@color/line"
+                app:layout_constraintTop_toBottomOf="@id/iv_2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/loader"
+            layout="@layout/view_loader"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <ImageView
+            android:id="@+id/blur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

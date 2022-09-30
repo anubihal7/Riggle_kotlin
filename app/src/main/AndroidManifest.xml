@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.rigle.servicehub">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.rigle.servicehub.App"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:allowBackup">
+
+        <activity
+            android:name="com.rigle.servicehub.ui.base.permission.PermissionsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.rigle.servicehub.ui.welcome.WelcomeActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.rigle.servicehub.ui.main.MainActivity"
+            android:screenOrientation="portrait">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity
+            android:name="com.rigle.servicehub.ui.login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.rigle.servicehub.ui.introscreen.IntroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.rigle.servicehub.ui.settle.SettlementActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.rigle.servicehub.ui.info.OnBoardInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.rigle.servicehub.ui.coupon.AddCouponActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.rigle.servicehub.ui.scanner.ScannerBarcodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.rigle.servicehub.ui.runner.view.AllRunnerActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.rigle.servicehub.ui.orders.detail.DetailOrderActivity"
+            android:screenOrientation="portrait"/>
+
+    </application>
+
+</manifest>

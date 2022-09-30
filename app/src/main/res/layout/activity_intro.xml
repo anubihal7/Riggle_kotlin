@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.login.LoginActivityVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/layout_bg">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/screenPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_200sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            layout="@layout/view_skip_next"
+            app:vm="@{vm}"
+            android:id="@+id/v_next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            app:layout_constraintVertical_bias="0.8"
+            app:layout_constraintEnd_toEndOf="@id/screenPager"
+            app:layout_constraintStart_toStartOf="@id/screenPager"
+            app:layout_constraintTop_toBottomOf="@id/screenPager" />
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/transparent"
+            app:layout_constraintStart_toStartOf="@id/screenPager"
+            app:layout_constraintTop_toBottomOf="@id/screenPager"
+            app:layout_constraintEnd_toEndOf="@id/screenPager"
+            app:tabBackground="@drawable/indicator_selector"
+            app:tabIndicator="@color/transparent" />
+
+
+        <TextView
+            android:id="@+id/btn_register"
+            style="@style/ButtonHollow"
+            android:layout_width="0dp"
+            android:elevation="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:backgroundTint="@color/orange"
+            android:text="Register"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toTopOf="@id/btn_login"
+            app:layout_constraintEnd_toEndOf="@id/btn_login"
+            app:layout_constraintStart_toStartOf="@id/btn_login" />
+
+        <TextView
+            android:id="@+id/btn_login"
+            style="@style/ButtonHollow"
+            android:layout_width="0dp"
+            android:elevation="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_35sdp"
+            android:layout_marginEnd="@dimen/_35sdp"
+            android:layout_marginBottom="@dimen/_35sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:text="Login"
+            android:textColor="@color/orange"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

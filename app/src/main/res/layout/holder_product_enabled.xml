@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <import type="android.view.View" />
+
+        <variable
+            name="bean"
+            type="com.rigle.servicehub.data.model.Product" />
+
+        <variable
+            name="callback"
+            type="com.rigle.servicehub.ui.base.adapter.MultiAdapter.Callback" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/v_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@color/white"
+        android:onClick="@{v->callback.onItemClick(v,bean)}">
+
+
+        <ImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_name" />
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextView.Regular.Black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:hint="Name"
+            android:text="@{bean.getRealProductName()}"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_profile"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/v_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:background="@drawable/back_view_round_1"
+            android:orientation="horizontal"
+            android:padding="@dimen/_2sdp"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_rate">
+
+            <ImageView
+                android:id="@+id/iv_minus"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:background="@drawable/back_view_round"
+                android:backgroundTint="@color/orange"
+                android:onClick="@{v->callback.onItemClick(v,bean)}"
+                android:padding="@dimen/_7sdp"
+                android:src="@drawable/ic_negitive"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_qty"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:hint="0000"
+                android:text="@{String.valueOf(bean.quantity)}"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/iv_plus"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:background="@drawable/back_view_round"
+                android:backgroundTint="@color/orange"
+                android:onClick="@{v->callback.onItemClick(v,bean)}"
+                android:padding="@dimen/_7sdp"
+                android:src="@drawable/ic_add"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_mix"
+            style="@style/TextView.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="?selectableItemBackground"
+            android:text="Update Mix"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="@{bean.products!=null?View.VISIBLE:View.GONE}"
+            app:layout_constraintEnd_toEndOf="@id/v_1"
+            android:onClick="@{v->callback.onItemClick(v,bean)}"
+            app:layout_constraintStart_toStartOf="@id/v_1"
+            app:layout_constraintTop_toBottomOf="@id/v_1" />
+
+        <TextView
+            android:id="@+id/tv_rate"
+            style="@style/TextView.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:hint="Rate"
+            app:currency="@{bean.rate}"
+            app:layout_constraintEnd_toEndOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_qty_label"
+            style="@style/TextView.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Qty"
+            app:layout_constraintBottom_toBottomOf="@id/tv_rate"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toTopOf="@id/tv_rate" />
+
+        <TextView
+            android:id="@+id/tv_amt"
+            style="@style/TextView.Regular.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="end"
+            android:hint="Amount"
+            android:textColor="@color/black"
+            app:currency="@{bean.amount}"
+            app:layout_constraintEnd_toEndOf="@id/tv_rate"
+            app:layout_constraintTop_toBottomOf="@id/tv_rate" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/line"
+            app:layout_constraintEnd_toEndOf="@id/tv_rate"
+            app:layout_constraintStart_toStartOf="@id/iv_profile"
+            app:layout_constraintTop_toBottomOf="@id/tv_mix" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

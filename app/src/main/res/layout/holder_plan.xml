@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.Html" />
+
+        <variable
+            name="callback"
+            type="com.rigle.servicehub.ui.base.adapter.RVAdapter.Callback" />
+
+        <variable
+            name="bean"
+            type="com.rigle.servicehub.data.model.PlanResponse.SubscriptionData.Plan" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardOwner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:onClick="@{v->callback.onItemClick(v,bean)}"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_2sdp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintTop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="start"
+                android:lines="3"
+                android:text="@{Html.fromHtml(bean.description)}"
+                android:textColor="#2A3436"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toTopOf="@id/v_1"
+                app:layout_constraintEnd_toStartOf="@id/ll_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/ll_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:gravity="end"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_title">
+
+                <TextView
+                    android:id="@+id/tv_amount"
+                    style="@style/TextView.Semibold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{bean.totalAmount}"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_12ssp"
+                    tools:text="₹0" />
+
+                <TextView
+                    android:id="@+id/tv_title2"
+                    style="@style/TextView.Regular.Black"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_height="wrap_content"
+                    android:text="@{bean.monthlyAmount}"
+                    android:textColor="@color/text_color_dark"
+                    android:textSize="@dimen/_10ssp"
+                    tools:text="₹0 per month" />
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/v_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/orange"
+                android:visibility="@{bean.isRecommended?View.INVISIBLE:View.VISIBLE}"
+                app:layout_constraintBottom_toTopOf="@id/tv_recommend" />
+
+            <TextView
+                android:id="@+id/tv_recommend"
+                style="@style/TextView.Semibold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text="RECOMMENDED"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="@{bean.isRecommended?View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

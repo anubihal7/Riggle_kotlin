@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.referral.ReferralViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_main">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_back"
+            app:vm="@{vm}" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/fl_bottom"
+            android:layout_below="@id/toolbar">
+
+            <RelativeLayout
+                android:id="@+id/rl_none"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_80sdp"
+                    android:background="@color/bg_dim" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/v1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@color/white"
+                    android:elevation="@dimen/_5sdp">
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        style="@style/TextView.Semibold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="How to create a coupon?"
+                        android:textColor="@color/text_color_dark"
+                        android:textSize="@dimen/_14sdp"
+                        app:layout_constraintStart_toStartOf="@id/cv"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_30sdp"
+                        app:layout_constraintBottom_toBottomOf="@id/main"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/main">
+
+                        <View
+                            android:layout_width="@dimen/_1sdp"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_50sdp"
+                            android:background="#F4F4F4"
+                            android:elevation="@dimen/_5sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <FrameLayout
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="#F4F4F4"
+                            android:elevation="@dimen/_5sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                style="@style/TextView.Semibold"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:padding="0dp"
+                                android:text="1"
+                                android:textColor="@color/orange"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="bold" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="#F4F4F4"
+                            android:elevation="@dimen/_5sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.4">
+
+                            <TextView
+                                style="@style/TextView.Semibold"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:padding="0dp"
+                                android:text="2"
+                                android:textColor="@color/orange"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="bold" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="#F4F4F4"
+                            android:elevation="@dimen/_5sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <TextView
+                                style="@style/TextView.Semibold"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:padding="0dp"
+                                android:text="3"
+                                android:textColor="@color/orange"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="bold" />
+                        </FrameLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:id="@+id/main"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/cv"
+                        app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+                        <TextView
+                            style="@style/TextView.Semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Add offer value"
+                            android:textColor="@color/text_color_dark"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            style="@style/TextView.Regular.Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="How much rupees off do you want to give the retailers?"
+                            android:textColor="@color/text_color_dark" />
+
+                        <TextView
+                            style="@style/TextView.Semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:text="Add minimum order value"
+                            android:textColor="@color/text_color_dark"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            style="@style/TextView.Regular.Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="What should be their minimum order value to avail the coupon"
+                            android:textColor="@color/text_color_dark" />
+
+                        <TextView
+                            style="@style/TextView.Semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:text="Activation in process"
+                            android:textColor="@color/text_color_dark"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            style="@style/TextView.Regular.Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_30sdp"
+                            android:text="How many such coupons do you want to generate in total?"
+                            android:textColor="@color/text_color_dark" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/v1"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/image_referral" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rl_offers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg_dim"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/bg_dim">
+
+            <TextView
+                android:id="@+id/btn_activate"
+                style="@style/ButtonHollow"
+                android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:backgroundTint="@color/orange"
+                android:elevation="@dimen/_5sdp"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="create coupon"
+                android:textAllCaps="true"
+                android:textColor="@color/white" />
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/blur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/loader"
+            layout="@layout/view_loader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar" />
+
+    </RelativeLayout>
+
+</layout>

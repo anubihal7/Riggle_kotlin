@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.rigle.servicehub.ui.base.sheet.BaseCloseSheet.ClickListener" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tvHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/rubik_bold"
+                android:text="You can update mix"
+                android:textColor="@color/black_85"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvMix"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="MOQ : 3/24"
+                android:textColor="#D64A5B"
+                android:textSize="14sp" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/tvHead"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:background="@color/colorGreyTrackingStatus" />
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view"
+                android:fillViewport="true">
+
+                <RelativeLayout
+                    android:id="@+id/chooseOwmer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true">
+
+                    <TextView
+                        android:id="@+id/tv_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:text="You can mix items across the following products to reach the given MOQ"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black_85"
+                        android:textSize="14sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvMixture"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_text"
+                        android:nestedScrollingEnabled="false"
+                        android:padding="@dimen/_5sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/list_of_mixture" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rvMixture"
+                        android:layout_marginStart="@dimen/_35sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_35sdp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        app:cardCornerRadius="6dp">
+
+                        <TextView
+                            android:id="@+id/tv_update"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/medium_gray"
+                            android:enabled="false"
+                            android:fontFamily="@font/rubik_medium"
+                            android:includeFontPadding="false"
+                            android:onClick="@{v->callback.onClick(v)}"
+                            android:padding="@dimen/_10sdp"
+                            android:text="Update Order"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>

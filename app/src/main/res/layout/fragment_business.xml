@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="docType"
+            type="com.rigle.servicehub.data.model.RigleConstantsResponse.CompanyProofType" />
+
+        <variable
+            name="path"
+            type="String" />
+
+        <variable
+            name="vm"
+            type="com.rigle.servicehub.ui.business.BusinessViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/tvFirmName"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/business_name"
+                android:textColor="@color/text_color_dark" />
+
+            <EditText
+                android:id="@+id/etFirmName"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:text="@={vm.fieldName}" />
+
+            <TextView
+                android:id="@+id/tvGstNo"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/gst_no"
+                android:textColor="@color/text_color_dark" />
+
+            <EditText
+                android:id="@+id/etGstNo"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:text="@={vm.fieldGst}" />
+
+            <CheckBox
+                android:id="@+id/cb_gst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:buttonTint="@color/orange"
+                android:fontFamily="@font/rubik_regular"
+                android:text="I want GST invoices"
+                android:textSize="@dimen/_10ssp" />
+
+            <TextView
+                android:id="@+id/tvproof"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="Business Proof"
+                android:textColor="@color/text_color_dark" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edit_back_view">
+
+                <Spinner
+                    android:id="@+id/etproof"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/_10sdp" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvData"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:hint="Data"
+                android:text="@{docType.name}"
+                android:textColor="@color/text_color_dark"
+                android:visibility="@{docType!=null?View.VISIBLE:View.GONE}" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="@{docType!=null?View.VISIBLE:View.GONE}">
+
+                <EditText
+                    android:id="@+id/etData"
+                    style="@style/EditText"
+                    android:layout_width="match_parent"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:paddingEnd="@dimen/_40sdp"
+                    android:text="@={vm.fieldProof}" />
+
+                <LinearLayout
+                    android:id="@+id/v_choose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etData"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="?selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:onClick="@{v->vm.onClick(v)}">
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/ic_upload"
+                        app:tint="@color/orange" />
+
+                    <TextView
+                        style="@style/TextView.Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:text="upload document"
+                        android:textAllCaps="true"
+                        android:textColor="@color/orange"
+                        android:textSize="@dimen/_10ssp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvAddress"
+                style="@style/TextView.Regular.Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16ssp"
+                android:text="@string/address"
+                android:textColor="@color/text_color_dark" />
+
+            <EditText
+                android:id="@+id/et_street"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:hint="Street/Area"
+                android:inputType="text"
+                android:text="@={vm.fieldAddress}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:weightSum="10">
+
+                <EditText
+                    android:id="@+id/et_building"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_weight="6"
+                    android:hint="Building/Suite"
+                    android:inputType="text"
+                    android:text="@={vm.fieldLocality}" />
+
+                <EditText
+                    android:id="@+id/et_pin"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_weight="4"
+                    android:hint="Pincode"
+                    android:inputType="text"
+                    android:text="@={vm.fieldPincode}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="@dimen/_50sdp"
+                android:weightSum="10">
+
+                <EditText
+                    android:id="@+id/et_city"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:hint="City"
+                    android:inputType="text"
+                    android:text="@={vm.fieldCity}" />
+
+                <EditText
+                    android:id="@+id/et_state"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_weight="5"
+                    android:hint="State"
+                    android:inputType="text"
+                    android:text="@={vm.fieldState}" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>
